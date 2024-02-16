@@ -1,0 +1,217 @@
+--basic queries: SELECT, WHERE, ORDER BY, JOIN, AGGREGATION FUNCTIONS + GROUP BY, HAVING 
+--advanced topics: Subquery, cte, window functions, pagination 
+--temp tables, table variables, sp, udf
+
+SELECT *
+FROM Employee
+
+INSERT INTO Employee VALUES(6, 'Monster2', 6000)
+INSERT INTO Employee VALUES(7, 'Monster3', -6000)
+
+--check constraint: limit the value range that can be placed in to a column
+
+DELETE Employee
+
+SELECT *
+FROM Employee
+
+ALTER TABLE Employee
+ADD CONSTRAINT Chk_Age_Employee CHECK(Age BETWEEN 18 AND 65)
+
+INSERT INTO Employee VALUES(6, 'Monster2', 6000)
+INSERT INTO Employee VALUES(7, 'Monster3', -6000)
+
+INSERT INTO Employee VALUES(1, 'Fred', 30)
+
+--identity property
+
+CREATE TABLE Product(
+    Id int PRIMARY KEY IDENTITY(1, 1),
+    ProductName VARCHAR(20) UNIQUE NOT NULL,
+    UnitPrice Money
+)
+
+SELECT *
+FROM Product
+
+INSERT INTO Product VALUES('Green Tea', 2)
+INSERT INTO Product VALUES('Latte', 3)
+INSERT INTO Product VALUES('Cold Brew', 4)
+
+--truncate vs. delete
+--1. DELETE is a DML, it will not reset the property valye; TRUNCATE is a DDL, will reset the property value
+
+DELETE Product
+
+SELECT *
+FROM Product
+
+INSERT INTO Product VALUES('Green Tea', 2)
+INSERT INTO Product VALUES('Latte', 3)
+INSERT INTO Product VALUES('Cold Brew', 4)
+
+TRUNCATE TABLE Product
+
+INSERT INTO Product VALUES('Green Tea', 2)
+INSERT INTO Product VALUES('Latte', 3)
+INSERT INTO Product VALUES('Cold Brew', 4)
+
+--2. Delete can be used with WHERE but TRUNCATE cannot be used. 
+
+DELETE Product
+WHERE Id = 3
+
+SET IDENTITY_INSERT Product ON
+INSERT INTO Product(Id, ProductName, UnitPrice) VALUES(3, 'Cold Brew', 4)
+
+--DROP: DDL statement that will delete the whole table
+
+--referential integrity: foreign key
+--Department table
+--Employee table
+
+CREATE TABLE Department(
+    Id int PRIMARY KEY,
+    DepartmentName varchar(20),
+    Location varchar(20)
+)
+
+DROP TABLE Employee
+
+CREATE TABLE Employee(
+    Id int PRIMARY KEY,
+    EmployeeName varchar(20),
+    Age int CHECK(AGE BETWEEN 18 AND 65),
+    DepartmentId int FOREIGN KEY REFERENCES Department(Id) ON DELETE CASCADE
+)
+
+DROP TABLE Employee
+
+SELECT *
+FROM Employee
+
+SELECT *
+FROM Department
+
+INSERT INTO Employee VALUES (1,'Fred', 34, 1)
+
+
+INSERT INTO Department VALUES(1, 'IT', 'Chicago')
+INSERT INTO Department  VALUES(2, 'HR', 'Sterling')
+INSERT INTO Department  VALUES(3, 'QA', 'Paris')
+
+DELETE FROM Department  
+WHERE Id = 1
+
+--Composite pk
+--student
+CREATE TABLE Student(
+    Id int PRIMARY KEY,
+    StudentName varchar(20)
+)
+
+--class
+CREATE TABLE Class(
+    Id int PRIMARY KEY,
+    ClassName varchar(20)
+)
+
+--Enrollment table
+
+CREATE TABLE Enrollment(
+    StudentId int NOT NULL,
+    ClassId int NOT NULL,
+    CONSTRAINT PK_Enrollment PRIMARY KEY(StudentId, ClassId),
+    CONSTRAINT FK_Enrollment_Student FOREIGN KEY(StudentId) REFERENCES Student(Id),
+    CONSTRAINT FK_Enrollment_Class FOREIGN KEY(ClassId) REFERENCES Class(Id)
+)
+
+--transaction: a group of logicallt related DML statements that will either succeed together or fail together
+
+--3 modes:
+
+--Autocommit transaction: default one
+--Implicit transaction
+--Explicit transaction
+
+DROP TABLE Product
+
+CREATE TABLE Product(
+    Id int PRIMARY KEY ,
+    ProductName VARCHAR(20) UNIQUE NOT NULL,
+    UnitPrice Money,
+    Quantity int
+)
+
+SELECT *
+FROM Product
+
+INSERT INTO Product VALUES(1,'Green Tea', 2, 100)
+INSERT INTO Product VALUES(2,'Latte', 3,100)
+INSERT INTO Product VALUES(3,'Cold Brew', 4, 100)
+
+BEGIN TRAN
+INSERT INTO Product VALUES(4,'Flat White', 4, 100)
+SELECT *
+FROM Product
+
+COMMIT
+
+BEGIN TRAN 
+INSERT INTO Product VALUES(5, 'Earl Gray', 4, 100)
+
+SELECT *
+FROM Product
+
+ROLLBACK
+
+--Properties
+--ACID
+--A: Atomicity: work is atomic
+--C: Consistency: whatever happens in the mid of the transaction, this property will never leave our db in half completed state 
+--I: Isolation: locking the resource 
+--D: Durabiltiy: once the transaction is completed, the changes it made to our db will be permanent
+
+--concurrency problem: when two or more than two users trying to access the same data
+
+--1. dirty read: if t1 alows t2 to read the uncommitted data and then t1 rolled back; happens when isolation level is read uncommitted, update the isolation level to read committed
+--2.Lost update: when t1 and t2 read and update the same data but t2 finishes its work earlier, so the update from the t2 will be missing, happens when isolation level is READ committed ; solved by isolation level repeatable read
+--3. Non repeatable read: t1 read and update the same data twice while t2 is updating the data; happens when isolation level is read committed; solved by updating isolation level to REPEATABLE READ
+--4. Phantom Read: t1 read and update the same data twice while t2 is inserting the data; isolation level is REPEATABLE READ; is solved by updating the isolation level to SERIALIZABLE
+
+--index: on disk-structure to increase the data retrival speed --Select
+--since data can only be sorted in one way there will only be one clustered index in one table generated by the primary key
+--clustered index: sort the record, one clustred index in one table, generated by primary key
+--non-clustered index: will not sort record, store elsewhere and point to data row, generated by unique constraint, one table can have multiple clustered index
+
+DROP TABLE Customer
+
+CREATE TABLE Customer(
+    Id int PRIMARY KEY,
+    FullName varchar(20),
+    City varchar(20),
+    Country varchar(20)
+)
+
+SELECT *
+FROM Customer
+
+CREATE CLUSTERED INDEX Cluster_IX_Customer_ID ON Customer(Id)
+
+INSERT INTO Customer VALUES(2, 'David', 'Chicago', 'USA')
+INSERT INTO Customer VALUES(1, 'Fred', 'Jersey City', 'USA')
+
+
+CREATE INDEX NonCluster_IX_Customer_City ON Customer(City)
+
+
+--disadvantages:
+--extra space, slow down other DML statements including UPDATE/INSERT/DELETE
+
+--PERFORMANCE TUNING 
+--look at the execution plan/sql profiler 
+--creating index wisely
+--avoid unnecessary joins
+--avoid SELECT *
+--derived table to avoid a lot of non-aggregated fields
+--use join to replace the subquery
