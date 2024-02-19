@@ -1,0 +1,14 @@
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/bin/Debug/net8.0/ConsoleApp_1
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/bin/Debug/net8.0/ConsoleApp_1.deps.json
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/bin/Debug/net8.0/ConsoleApp_1.runtimeconfig.json
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/bin/Debug/net8.0/ConsoleApp_1.dll
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/bin/Debug/net8.0/ConsoleApp_1.pdb
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/obj/Debug/net8.0/ConsoleApp_1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/obj/Debug/net8.0/ConsoleApp_1.AssemblyInfoInputs.cache
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/obj/Debug/net8.0/ConsoleApp_1.AssemblyInfo.cs
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/obj/Debug/net8.0/ConsoleApp_1.csproj.CoreCompileInputs.cache
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/obj/Debug/net8.0/ConsoleApp_1.dll
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/obj/Debug/net8.0/refint/ConsoleApp_1.dll
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/obj/Debug/net8.0/ConsoleApp_1.pdb
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/obj/Debug/net8.0/ConsoleApp_1.genruntimeconfig.cache
+/Users/anjila/RiderProjects/ConsoleApp_1/ConsoleApp_1/obj/Debug/net8.0/ref/ConsoleApp_1.dll

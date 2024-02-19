@@ -1,0 +1,60 @@
+Category of Types:
+1. Built-in types
+    signed types: +/-
+    unsigned types
+2.User defined types
+
+Another categorization of C# types:
+
+1.Value type
+2.Refrence type
+
+1.Value type will directly hold the value, while reference type will hold the memory address for this value.
+2.Value types are stored in the stack memory and reference types are stored int the heap memory. 
+3.Value type will not be collected by garbage collector but reference type will be collected by garabage collector. 
+4. Value type can be created by struct or enum while reference type can be created by class, interface, delegate or array. 
+5. Value type can not accept any null values while reference type can accept null values. 
+
+CLR: Common Language Runtime
+
+Generation 0,1 and 2
+
+Two parts in heap memory:
+1.managed heap
+2.Unmanaged heap: call Dispose() from IDisposable interface
+
+String is immutable in C#. If you want to modify a string, go with StringBuilder. StringBuilder represents a mutable string.
+
+Enum are used to store known, small and specific set of values. 
+
+Methods:
+
+[Access Modifiers] Return type MethodName ([Formal Parameters]){
+
+}
+
+Access Modifiers:
+Public: members can be accessed anywhere
+Private: members can be accessed only in current class.
+Internal: members can be accessed in current assembly
+Protected: members can be accessed in current class and children classes
+
+Modes of parameter passing:
+1.Pass by value: copy of the actual parameter is created and will be passed to the formal parameter, default
+2.Pass by reference: the reference of the actual parameter will be passed to the formal parameter, so change in formal parameters will also reflect in actual parameters,
+use ref keyword
+3.Optional Parameters: they allow you to define default value for method parameters
+4.Out mode: when you want to return more than one value in a single method, use out mode
+5.Params: parameters of the same type but with variable length
+
+Class Counter{
+
+    void Increment(ref int counter){
+        count++;
+    }
+}
+
+Boxing and Unboxing
+
+ref vs out
+
