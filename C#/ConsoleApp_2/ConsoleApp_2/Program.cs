@@ -19,3 +19,7 @@ Addition.AddNumbers(1, 2, 1);
 int a = 3;
 Console.WriteLine(a.EvenOrOdd());
 
+EmployeeRepository employeeRepository = new EmployeeRepository();
+employeeRepository.CreateEmployee(new FullTimeEmployee());
+employeeRepository.CreateEmployee(new PartTimeEmployee());
+employeeRepository.CreateEmployee(new Manager());
