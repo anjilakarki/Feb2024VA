@@ -1,0 +1,49 @@
+Recap:
+
+1.generics
+2.Delegates: Func, Predicate, Action
+3.Extension methods
+
+LINQ: is a sql like syntax that we use in C# to get data from different data sources
+
+Data Providers:
+
+LINQ to Objects: in-memory data sources: list, array - IEnumerable 
+LINQ to DataSets: work with Ado.net
+LINQ to SQL: talk to sql server db
+LINQ to Entities: talk to other sql db, Enitity Framework core -- out of memory data sources ---IQueryable
+
+in-memory data source: data stored temporarily in our application --> IEnumerable 
+out-memory data sources: IQueryable
+
+select a single record:
+1.First vs FirstOrDefault
+2.Single vs SingleOrDefault
+
+First: Return the first record when there is one or more matching value found and if no matching record got found, it will throw an exception
+FirstOrDefault: Returns the first record and when there is no matching values found,then assign null value
+Single:It will return matched single record but if we can not find any matching record, it will throw an exception. If we have more than one record found,
+it will also throw exception
+SingleOrDefault: return the matched single record, but if no matching record found, then it will assign a default null value. And if there is more than
+one matching record got found, it will throw an exception.
+
+Quantifier Operator:
+Any(): checks if any of the elements satisfy the specifies condition, if yes returns true
+All(): checks if all elements satisfy the condition, if yes return true
+
+
+Inner Join: 
+
+var result = from c in Customers join o in Orders on c.CustomerID 
+equals o.CustomerID
+select new {c.CustomerID, c.ContactName, o.OrderDate}; 
+
+
+Left Join:
+var result = from c in Customers join o in Orders on c.CustomerID 
+equals o.CustomerID 
+into customerOrders 
+//store it into a temporary collection
+from co in customerOrders.DefaultIfEmpty()
+select new {c.CustomerID, c.ContactName, 
+co.OrderDate};

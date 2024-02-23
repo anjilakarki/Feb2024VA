@@ -1,0 +1,15 @@
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/bin/Debug/net8.0/ConsoleApp_5
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/bin/Debug/net8.0/ConsoleApp_5.deps.json
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/bin/Debug/net8.0/ConsoleApp_5.runtimeconfig.json
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/bin/Debug/net8.0/ConsoleApp_5.dll
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/bin/Debug/net8.0/ConsoleApp_5.pdb
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/ConsoleApp_5.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/ConsoleApp_5.AssemblyInfoInputs.cache
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/ConsoleApp_5.AssemblyInfo.cs
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/ConsoleApp_5.csproj.CoreCompileInputs.cache
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/ConsoleApp_5.sourcelink.json
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/ConsoleApp_5.dll
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/refint/ConsoleApp_5.dll
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/ConsoleApp_5.pdb
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/ConsoleApp_5.genruntimeconfig.cache
+/Users/anjila/Documents/Feb2024VA/C#/ConsoleApp_5/ConsoleApp_5/obj/Debug/net8.0/ref/ConsoleApp_5.dll
