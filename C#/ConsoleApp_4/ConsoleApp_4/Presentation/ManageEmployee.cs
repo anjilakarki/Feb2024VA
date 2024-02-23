@@ -16,5 +16,10 @@ public class ManageEmployee
             Console.WriteLine(employee.Id + "\t" + employee.FullName+ "\t" + employee.City + "\t" + employee.Department);
         }
     }
+
+    public void Run()
+    {
+        // var result = _employeeRepository.Search().Select()
+    }
     
 }
